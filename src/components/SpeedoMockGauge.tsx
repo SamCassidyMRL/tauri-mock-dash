@@ -24,7 +24,7 @@ const SpeedoMockGauge: FC<Props> = ({speed}) => {
   return (
     <div style={{ width: 500, height: 400}}>
       <GaugeComponent
-      style={{ position: 'absolute', zIndex: 2, width:500, height: 400, margin: 0, fontFamily: 'fantasy'}}
+      style={{ position: 'absolute', zIndex: 2, width:500, height: 400, margin: 0}}
       type="radial"
       maxValue={200} 
       marginInPercent={0.02}

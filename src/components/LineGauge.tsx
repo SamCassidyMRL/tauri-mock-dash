@@ -96,7 +96,7 @@ const LineGauge: FC<Props> = ({value, min, max, softWarning, hardWarning, label}
 
         />
     </VictoryChart>
-<div color='white' style={{ fontFamily: 'fantasy', textAlign:'center', color:'white', marginTop: '-20px' }}>{label}</div>
+<div color='white' style={{ textAlign:'center', color:'white', marginTop: '-20px' }}>{label}</div>
     </div>
   );
 };
