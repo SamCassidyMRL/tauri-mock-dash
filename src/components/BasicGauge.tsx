@@ -20,7 +20,7 @@ const BasicGauge: FC<Props> = ({value, min, max, softWarning, hardWarning, label
     }, 100);
 
     // Cleanup the interval when the component unmounts
-    return () => clearInterval(canRerenderCallback);
+    return () => {clearInterval(canRerenderCallback)};
   }, []);
 
   return (
@@ -29,8 +29,9 @@ const BasicGauge: FC<Props> = ({value, min, max, softWarning, hardWarning, label
       style={{marginRight: '-50px', marginLeft: '-50px', marginTop: '-30px', fontFamily: 'fantasy'}}
       labels={{ 
         tickLabels: {hideMinMax: true}, 
-        valueLabel: { formatTextValue: (value: any) => { 
+        valueLabel: { formatTextValue: (value) => { 
           if (canRerender) {
+            // 
             setCurrentValue(Math.floor(value))
             setCanRerender(false)
             return Math.floor(value).toString()

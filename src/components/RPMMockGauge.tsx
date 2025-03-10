@@ -1,24 +1,21 @@
 import React, { FC, useEffect, useState } from 'react';
 import { GaugeComponent } from 'react-gauge-component';
-const UPDATE_TILL_RERENDER_NUMBER = 2
 
 interface Props {
   rpm: number
 }
 
 const RPMMockGauge: FC<Props> = ({rpm}) => {
-  const [numberDisplayValue, setNumberDisplayValue] = useState(rpm)
-  const [renderCount, setRenderCount] = useState(0)
 
     const [canRerender, setCanRerender] = useState(true)
     const [currentValue, setCurrentValue] = useState(rpm)
+    const [numberDisplayValue, setNumberDisplayValue] = useState(rpm)
   
     useEffect(() => {
       const canRerenderCallback = setInterval(() => {
         setCanRerender(true);
       }, 100);
-  
-      // Cleanup the interval when the component unmounts
+
       return () => clearInterval(canRerenderCallback);
     }, []);
 
@@ -29,7 +26,7 @@ const RPMMockGauge: FC<Props> = ({rpm}) => {
       type="radial"
       maxValue={9000} 
       marginInPercent={0.02}
-  value={rpm }
+  value={rpm}
   arc={{
     colorArray: ['#FFFFFF', '#DA2128', '#7a0000'],
     subArcs: [{limit:6000}, {limit: 8000}, {limit: 9000, color: '#DA2128'}],
@@ -41,9 +38,9 @@ const RPMMockGauge: FC<Props> = ({rpm}) => {
   labels={{
     valueLabel: { formatTextValue: (value: any) => { 
       if (canRerender) {
-        setCurrentValue(Math.floor(value))
+        setCurrentValue(Math.floor(value as number))
         setCanRerender(false)
-        return Math.floor(value).toString()
+        return Math.floor(value as number).toString()
       } else {
         return currentValue.toString()
       }

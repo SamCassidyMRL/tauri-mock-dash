@@ -16,7 +16,9 @@ const SpeedoMockGauge: FC<Props> = ({speed}) => {
         }, 100);
     
         // Cleanup the interval when the component unmounts
-        return () => clearInterval(canRerenderCallback);
+        return () => {
+          clearInterval(canRerenderCallback);
+        }
       }, []);
 
   return (
@@ -37,9 +39,9 @@ const SpeedoMockGauge: FC<Props> = ({speed}) => {
   labels={{
     valueLabel: { formatTextValue: (value) => { 
       if (canRerender) {
-        setCurrentValue(Math.floor(value))
+        setCurrentValue(Math.floor(value as number))
         setCanRerender(false)
-        return Math.floor(value).toString()
+        return Math.floor(value as number).toString()
       } else {
         return currentValue.toString()
       }

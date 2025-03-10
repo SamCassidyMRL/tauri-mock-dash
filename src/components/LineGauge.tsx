@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { type FC, useEffect, useRef, useState } from 'react';
 import { VictoryAxis, VictoryChart, VictoryLine, Background } from 'victory';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const LineGauge: FC<Props> = ({value, min, max, softWarning, hardWarning, label}) => {
-  const [timeSeries, setTimeSeries] = useState([value])
+  const [timeSeries] = useState([value])
   const lastValueRef = useRef(value)
 
 
@@ -82,7 +82,7 @@ const LineGauge: FC<Props> = ({value, min, max, softWarning, hardWarning, label}
         <VictoryLine
           data={ timeSeries.map((data, index) => ({y: data, x: 30 - index})) }
           interpolation="linear"
-          labels={({ datum }) => datum.x === 30 ? datum.y : null}
+          labels={({ datum }) => datum?.x === 30 ? datum?.y : null}
           
           style={{
             data: {

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 
 interface Props {
   value: number,
@@ -9,7 +9,7 @@ interface Props {
   label: string
 }
 
-const NumberGauge: FC<Props> = ({value, min, max, softWarning, hardWarning, label}) => {
+const NumberGauge: FC<Props> = ({value, label}) => {
 
   return (
     <div style={{width: 140, height: 115, borderRadius: 16, backgroundColor:"rgba(0, 0, 0, 0.25)" }}  > 

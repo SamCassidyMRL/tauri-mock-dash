@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import RPMMockGauge from './RPMMockGauge';
-// import TimerCount from './TimerCount.jsx';
 import BasicGauge from './BasicGauge';
 import { MOCK_ECU_DATA } from './mockECUData';
 import SpeedoMockGauge from './SpeedoMockGauge';
