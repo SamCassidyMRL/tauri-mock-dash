@@ -15,7 +15,9 @@
     "@tauri-apps/plugin-opener": "^2.2.6",
     "next": "^15.2.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-gauge-component": "^1.2.64",
+    "victory": "^37.3.6"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
