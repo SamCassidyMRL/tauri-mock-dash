@@ -28,11 +28,10 @@ const RPMMockGauge: FC<Props> = ({rpm}) => {
       marginInPercent={0.02}
   value={rpm}
   arc={{
-    colorArray: ['#FFFFFF', '#DA2128', '#7a0000'],
-    subArcs: [{limit:6000}, {limit: 8000}, {limit: 9000, color: '#DA2128'}],
+    colorArray: ['#FFFFFF', '#DA2128'],
+    subArcs: [{limit:7000}, {limit: 8000}],
     padding: 0,
-    gradient: true,
-    cornerRadius: 20,
+    cornerRadius: 5,
     width: 0.15
   }}
   labels={{
